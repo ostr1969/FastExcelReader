@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:ExcelReader"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid>
-        
+        <StackPanel>
+            <Button Command="{Binding ExtractCommand}" Content="extract"/>
+            <Button Command="{Binding LoadSheetCommand}" Content="LoadSheet"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding GetDoubleRangeCommand}" Content="GetDoubles"/>
+                <TextBox Text="{Binding RangeToGet}" Width="50" TextAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding GetCellCommand}" Content="GetCellValue"/>
+                <TextBox Text="{Binding CellToGet}" Width="30" TextAlignment="Center"/>
+            </StackPanel>
+            <ListBox ItemsSource="{Binding sheets}" SelectedItem="{Binding SelectedSheetItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"></TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        </StackPanel>
     </Grid>
 </Window>

@@ -23,6 +23,7 @@ namespace ExcelReader
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowVM();
         }
     }
 }
